@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Anesthetic Evaluation Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"], input[type="number"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .form-container .form-group {
+            flex: 1 1 45%;
+        }
+
+        .form-container .form-group:nth-child(odd) {
+            flex: 1 1 100%;
+        }
+
+        .table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .table td {
+            background-color: #f9f9f9;
+        }
+
+        @media (max-width: 768px) {
+            .form-container .form-group {
+                flex: 1 1 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pre-Anesthetic Evaluation Form</h1>
+        <form action="process.php" method="POST">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact Number</label>
+                    <input type="tel" id="contact" name="contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="emergency_contact">Emergency Contact</label>
+                    <input type="tel" id="emergency_contact" name="emergency_contact" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (in cm)</label>
+                    <input type="number" id="height" name="height" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (in kg)</label>
+                    <input type="number" id="weight" name="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="blood_group">Blood Group</label>
+                    <select id="blood_group" name="blood_group" required>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Known Allergies</label>
+                    <textarea id="allergies" name="allergies" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="medical_history">Medical History</label>
+                    <textarea id="medical_history" name="medical_history" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="surgical_history">Surgical History</label>
+                    <textarea id="surgical_history" name="surgical_history" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="medications">Current Medications</label>
+                    <textarea id="medications" name="medications" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="smoking_status">Smoking Status</label>
+                    <select id="smoking_status" name="smoking_status" required>
+                        <option value="Non-Smoker">Non-Smoker</option>
+                        <option value="Smoker">Smoker</option>
+                        <option value="Former Smoker">Former Smoker</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alcohol_consumption">Alcohol Consumption</label>
+                    <select id="alcohol_consumption" name="alcohol_consumption" required>
+                        <option value="Non-Drinker">Non-Drinker</option>
+                        <option value="Occasional">Occasional</option>
+                        <option value="Regular">Regular</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="procedure">Planned Procedure</label>
+                    <textarea id="procedure" name="procedure" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="symptoms">Symptoms</label>
+                    <textarea id="symptoms" name="symptoms" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fasting_duration">Fasting Duration (hours)</label>
+                    <input type="number" id="fasting_duration" name="fasting_duration" required>
+                </div>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
